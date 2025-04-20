@@ -120,3 +120,26 @@ We are using RemixID for deploying the contract and generation of the ABI in the
 
 
 
+
+Metarupees-Project/
+│── backend/  # Node.js & Express Backend
+│   ├── controllers/ 
+│   ├── models/
+│   ├── routes/
+│   ├── config/
+│   ├── server.js
+│── frontend/  # React.js & Web3 Frontend
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── utils/
+│   ├── package.json
+│── smart-contracts/  # Solidity Smart Contracts
+│   ├── contracts/
+│   │   ├── MetarupeesToken.sol
+│   │   ├── MetarupeesNFT.sol
+│   ├── scripts/
+│   ├── hardhat.config.js
+│── .env
+│── README.md
+
