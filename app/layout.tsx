@@ -1,13 +1,29 @@
-import { RainbowKitProvider, getDefaultConfig } from '@rainbow-me/rainbowkit';
-import { WagmiProvider, createConfig } from 'wagmi';
+import { RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit';
+import { WagmiProvider, createClient, configureChains } from 'wagmi';
 import { mainnet, sepolia } from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import './globals.css'
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'; // Corrected import for jsonRpcProvider
+import './globals.css';
 
-const config = getDefaultConfig({
-  appName: 'Web3 Platform',
-  projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID!,
-  chains: [mainnet, sepolia],
+// Define your custom RPC URL (e.g., from Infura, Alchemy, etc.)
+const rpcUrl = 'https://mainnet.infura.io/v3/4e070ec2073b40c091679426358d135f'; // Replace with your RPC URL
+
+// Configure chains and providers using jsonRpcProvider
+const { chains, provider } = configureChains(
+  [mainnet, sepolia], // Chains you want to use
+  [
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: rpcUrl,
+      }),
+    }),
+  ]
+);
+
+// Create the Wagmi client
+const wagmiClient = createClient({
+  autoConnect: true,
+  provider,
 });
 
 const queryClient = new QueryClient();
@@ -25,9 +41,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <WagmiProvider config={config}>
+        <WagmiProvider client={wagmiClient}>
           <QueryClientProvider client={queryClient}>
-            <RainbowKitProvider>
+            <RainbowKitProvider theme={darkTheme()}>
               {children}
             </RainbowKitProvider>
           </QueryClientProvider>
