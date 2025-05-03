@@ -1,9 +1,9 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Button } from ".././../components/ui/button"
+import { Card, CardContent, CardFooter } from ".././../components/ui//ui/card"
+import { Input } from "../components/ui/input"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select"
 import { Search, Filter } from "lucide-react"
 
 // Sample NFT data

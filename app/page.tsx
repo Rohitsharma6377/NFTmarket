@@ -1,12 +1,11 @@
 import Link from "next/link"
 import { Button } from "../components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card"
 import { ConnectWallet } from "../components/connect-wallet"
 import { FeaturedNFTs } from "../components/featured-nfts"
 import { TokenStats } from "../components/token-stats"
 import { HeroSection } from "../components/hero-section"
-import Banner from '../components/ui/Banner'
-import HeroBanner from '../components/ui/HeroBanner'
+
 
 export default function HomePage() {
   return (
@@ -35,8 +34,6 @@ export default function HomePage() {
         </div>
       </header>
       <main className="flex-1">
-        <Banner />
-        <HeroBanner />
         <HeroSection />
 
         <section className="container py-12 md:py-24 lg:py-32">
